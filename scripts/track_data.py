@@ -19,7 +19,7 @@ import nibabel as nib
 import numpy as np
 from dipy.core.gradients import gradient_table
 from dipy.data import default_sphere, get_fnames
-from dipy.data.fetcher import dipy_home, fetch_hbn
+from dipy.data.fetcher import dipy_home
 from dipy.direction import peaks_from_model
 from dipy.io.gradients import read_bvals_bvecs
 from dipy.io.image import load_nifti, load_nifti_data
@@ -31,8 +31,6 @@ from dipy.tracking.streamline import Streamlines
 from dipy.tracking.tracker import probabilistic_tracking
 from dipy.tracking.utils import seeds_from_mask
 
-
-study_path = fetch_hbn(["NDARAA948VFH"])
 
 hardi_fname, hardi_bval_fname, hardi_bvec_fname = get_fnames(name="stanford_hardi")
 label_fname = get_fnames(name="stanford_labels")
