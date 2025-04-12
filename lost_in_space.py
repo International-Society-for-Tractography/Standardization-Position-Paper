@@ -15,7 +15,7 @@
 
 """
 This script is a demonstration of the different cases of affine mismatch
-between the streamline generator, the tractogram instanciation and the file
+between the streamline generator, the tractogram instantiation and the file
 header.
 
 It generates a set of streamlines from a probabilistic direction getter and
