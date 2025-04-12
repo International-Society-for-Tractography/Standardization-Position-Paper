@@ -12,7 +12,7 @@ saves them in different files with different configurations.
 """
 
 from dipy.core.gradients import gradient_table
-from dipy.data import get_fnames, small_sphere, fetch_hbn
+from dipy.data import get_fnames, small_sphere
 from dipy.direction import ProbabilisticDirectionGetter
 from dipy.io.gradients import read_bvals_bvecs
 from dipy.io.image import load_nifti, load_nifti_data
@@ -28,9 +28,6 @@ from nibabel.streamlines import detect_format
 from nibabel.streamlines.tractogram import Tractogram
 import numpy as np
 
-
-study_path = fetch_hbn(["NDARAA948VFH"])
-deriv_path = op.join(study_path, "derivatives")
 
 # Prepare the data
 fname, bval_fname, bvec_fname = get_fnames(name="stanford_hardi")
