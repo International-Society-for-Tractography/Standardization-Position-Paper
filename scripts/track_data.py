@@ -65,7 +65,7 @@ fod = csd_fit.odf(default_sphere)
 
 fod_img = nib.Nifti1Image(fod, affine)
 fod_fname = Path(dipy_home) / "fod.nii.gz"
-nib.save(white_matter_img, fod_fname)
+nib.save(fod_img, fod_fname)
 
 streamline_generator = probabilistic_tracking(
     seeds,
