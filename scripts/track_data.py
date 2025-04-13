@@ -72,8 +72,8 @@ streamline_generator = probabilistic_tracking(
     sf=fod,
     random_seed=1,
     sphere=default_sphere,
-    max_angle=20,
-    step_size=0.2,
+    max_angle=30.0,
+    step_size=0.5,
 )
 
 streamlines = Streamlines(streamline_generator)
