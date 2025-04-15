@@ -1,0 +1,6 @@
+fury
+dipy
+matplotlib
+nibabel
+numpy
+requests
