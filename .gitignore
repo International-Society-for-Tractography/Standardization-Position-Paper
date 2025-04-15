@@ -1,1 +1,37 @@
 *.trk
+
+# Python virtual environments
+.env
+.venv
+.ENV
+env/
+venv/
+ENV/
+
+# Conda environments
+conda-env/
+*.conda
+*.env
+
+# VSCode
+.vscode/
+
+# JetBrains IDEs (e.g., PyCharm, IntelliJ)
+.idea/
+
+# Eclipse
+.project
+.classpath
+.c9/
+.settings/
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Spyder
+.spyderproject
+.spyproject
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
