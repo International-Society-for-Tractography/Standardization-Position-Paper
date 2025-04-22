@@ -2,4 +2,5 @@ fury
 dipy
 matplotlib
 nibabel
+notebook
 numpy
