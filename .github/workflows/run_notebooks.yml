@@ -1,0 +1,38 @@
+name: Run Notebooks in Docker
+
+on:
+  push:
+  workflow_dispatch:
+
+concurrency:
+  group: run-notebooks
+  cancel-in-progress: true
+
+jobs:
+  run-all:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - dockerfile: dockerfiles/trackvis_corner_vs_center_dockerfile
+            notebook: notebooks/trackvis_corner_vs_center.ipynb
+          - dockerfile: dockerfiles/lps_vs_ras_dockerfile
+            notebook: notebooks/lps_vs_ras.ipynb
+          - dockerfile: dockerfiles/tracking_spatial_mismatch_dockerfile
+            notebook: notebooks/tracking_spatial_mismatch.ipynb
+
+    steps:
+      - name: Install xvfb
+        run: sudo apt-get install -y xvfb
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          docker build -f ${{ matrix.dockerfile }} -t tractography_issues_image .
+
+      - name: Run notebook inside Docker
+        run: |
+          docker run --rm -v ${{ github.workspace }}:/work -w /work tractography_issues_image \
+            jupyter nbconvert --to notebook --execute ${{ matrix.notebook }} --output executed-${{ matrix.notebook }}
